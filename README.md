@@ -31,16 +31,5 @@ cd lean && lake exe cache get && lake build
 # Run numerical verification
 cd src/python && pip install -r requirements.txt && python verification.py --N 256 --K 100000
 
-Citation
 
-@misc{acharya2026spectrumzero,
-  title        = {Spectrum-Zero Functor and Constructive Proof of the Riemann Hypothesis},
-  author       = {Zhenyuan Acharya},
-  year         = {2026},
-  doi          = {10.5281/zenodo.20053375},
-  url          = {https://doi.org/10.5281/zenodo.20053375}
-}
-
-Zenodo Archive: https://doi.org/10.5281/zenodo.20053375
-License: CC BY 4.0
 
