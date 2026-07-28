@@ -31,7 +31,9 @@ This repository supports multiple papers on the topological / spectral treatment
   - Topological reduction of RH to the vanishing of the real part of Spec(𝒟)
   - Locking of all non-trivial zeros on the critical line by T⁶⁴ compactness + TCSC end-lessness
   - Dual-engine (Lean 4 + Rocq) interface-layer formalization
-- Location: `lean/RH/TopologicalJudgment.lean`, `lean/RH/SpectralZeroFunctor_Paper2.lean`
+- Location:
+  - Lean 4: `lean/RH/TopologicalJudgment.lean`, `lean/RH/SpectralZeroFunctor_Paper2.lean`
+  - Rocq: `coq/TCSC_Axioms.v`, `coq/SpectralZeroFunctor.v`, `coq/TopologicalJudgment.v`
 
 ---
 
@@ -48,15 +50,15 @@ Paper 2 re-formulates the same result in the final ring-style monistic language,
 .
 ├── lean/
 │   ├── RH/                    # Core RH formalizations (Papers 1 & 2)
-│   │   ├── BasicDefinitions.lean
-│   │   ├── CriticalLine.lean
-│   │   ├── RiemannZeros.lean
-│   │   ├── SelbergTrace.lean
-│   │   ├── SpectralLocking.lean
-│   │   ├── SpectrumZeroFunctor.lean
+│   │   ├── … (Paper 1 modules)
 │   │   ├── TopologicalJudgment.lean      # Paper 2
 │   │   └── SpectralZeroFunctor_Paper2.lean
 │   └── YXTT/                  # Supporting YXTT modules
+├── coq/                    # Rocq/Coq axiom & interface layer (Paper 2)
+│   ├── TCSC_Axioms.v
+│   ├── SpectralZeroFunctor.v
+│   ├── TopologicalJudgment.v
+│   └── README.md
 ├── src/python/               # Numerical verification (BCCB + FFT)
 ├── LICENSE
 └── README.md
@@ -70,6 +72,12 @@ cd YuanXian-Riemann-Hypothesis
 
 # Lean 4 formal verification
 cd lean && lake exe cache get && lake build
+
+# Rocq / Coq formal verification
+cd ../coq
+coqc TCSC_Axioms.v
+coqc SpectralZeroFunctor.v
+coqc TopologicalJudgment.v
 
 # Numerical verification
 cd ../src/python && pip install -r requirements.txt
